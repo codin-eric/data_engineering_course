@@ -16,11 +16,44 @@ Ahora que tenemos nuestros cambios en el estado de staging tenemos que commitear
 Para esto devemos hacer `git commit` si usamos el flag `-m` podemos escribir un pequeno comentario con los cambios `git commit -m'cambios'` al correr esto generaremos un nuevo commit que marca una nueva version en nuestro proyecto.
 Para poder ver nuestro historial de commit podemos hacer `git log` Al usar este comando podremos ver la lista de commits en nuestro proyecto.
 
-### Branch Workflow
-WIP
-
 ### Github
-WIP
+Github es una pagina que en sus bases permite crear un repositorio de git en internet. Esto nos permite compartir de forma rapida y simple nuestro repo con el mundo a traves de una simple pagina web. Tambien da una interfaz web para poder hacer review del codigo y hace la colaboracion mucho mas fluida.
+Github es la pagina web por excelencia para compartir codigo abierto.
+
+#### de git a github
+Crear un repo en Github es super trivial y la pagina te guia para que esto sea super simple pero hay un concepto que tal vez se te escape cuando usas github.
+Como dije antes github es un repo en internet, ahora, nuestro repo que creamos enterirormente esta en nuestro local. Para poder "sincronizar" nuestros repos debemos primero agregar el repo remoto (remote)
+Si seguis la guia de github en un momento te dira que debes correr un comando parecido a `git remote add origin git@github.com:User/UserRepo.git`
+Si nos detenemos a mirar un momento este comando lo que esta haciendo es agregar un repo remoto con el nombre origin y le indiga la url de github.
+
+#### Trabajando con remote
+Cuando creamos un repositorio remoto aparecen un par de comandos basicos.
+```
+git clone git@github.com:User/UserRepo.git
+```
+Este comando clona un repositorio remoto en tu local creando una carpeta con todo lo necesario para empezar a trabajar.
+```
+git push origin master
+```
+Este comando como su nombre lo indica empuja nuestro local hacia origin. Este comando se usa para mandar nuestros cambios al repositorio remoto
+```
+git pull origin master
+```
+Contrario al comando anterior este trae los cambios del repositorio remoto a nuestro local.
+
+### Branch Workflow
+El concepto de "ramas" es la razon por la cual git es tan poderoso.
+```
+-main---------------------------------------------------
+             \                  -f2---         /
+              \               /        \      /
+               -develop-----------------------
+                           \               /
+                            -f1-----------
+```
+Como podes observar en el hermoso grafico tenemos una rama principal antiguamente llamada `master` o maestro aunque hoy en dia se esta eligiendo cambiar el nombre por `main` o principal. Luego tenemos una ramificacion a una rama llamada `develop` luego tenemos 2 ramas `f1` y `f2` que luego vuelven a `develop` y por ultimo todo se suma a `main`
+Casi como si supiera, este grafico representa lo que se suele hacer cuando se trabaja en un proyecto donde, main es la branch que tiene nuestro codigo de produccion, develop es la branch donde se hacen todas las pruebas, generalmente, en un ambiente parecido a produccion pero limitado y las branches f1, f2 son branches que se usan para desarrollar features.
+En empresas mas grandes se suele tener una branch de `staging` entre main y develop que es una copia exacta de produccion pero se usa para hacer pruebas de QA.
 
 ### Agile Workflow with Git
 WIP

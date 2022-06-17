@@ -1,4 +1,6 @@
-## Week 1 
+
+# Education Curriculum Overview
+## Part 1 
 - git & github
 - Linux 
 - Bash Shell 
